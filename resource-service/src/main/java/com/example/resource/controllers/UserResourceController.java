@@ -9,8 +9,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class UserResourceController {
+
     @Autowired
     private UserCrudFeign userCrudFeign;
+
     @PostMapping("/save-user")
     public UserDetailsDTO saveUpdate(@RequestBody UserDetailsDTO inputUser) {
         return userCrudFeign.callUserCrudToSaveUser(inputUser);

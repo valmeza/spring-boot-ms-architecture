@@ -10,6 +10,7 @@ import java.util.List;
 
 @FeignClient(name="user-crud")
 public interface UserCrudFeign {
+
     @PostMapping("/api/saveUpdate")
     UserDetailsDTO callUserCrudToSaveUser(@RequestBody UserDetailsDTO inputUser);
 
@@ -17,6 +18,6 @@ public interface UserCrudFeign {
     UserDetailsDTO callUserCrudToGetById(@PathVariable Long id);
 
     @GetMapping("api/getByName/{name}")
-    List<UserDetailsDTO > callUserCrudToGetUsersByName(@PathVariable String name);
+    List<UserDetailsDTO> callUserCrudToGetUsersByName(@PathVariable String name);
 
 }

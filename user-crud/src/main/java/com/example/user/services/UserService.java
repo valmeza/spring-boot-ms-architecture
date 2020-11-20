@@ -13,8 +13,10 @@ import java.util.stream.Collectors;
 @Service
 public class UserService {
     private final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
+
     @Autowired
     private UserRepository repository;
+
     @Transactional
     public UserDetailsDTO saveUpdate(UserDetailsDTO inputUser) {
         try {
@@ -27,9 +29,11 @@ public class UserService {
         }
         return null;
     }
+
     public UserDetailsDTO getById(Long id) {
         return getUserDetailsDTO(repository.getOne(id));
     }
+
     public List<UserDetailsDTO> getByName(String name) {
         List<UserDetails> userDetailsList = repository.findUserByName(name);
         if (CollectionUtils.isEmpty(userDetailsList)) {
@@ -40,6 +44,7 @@ public class UserService {
                 .map(this::getUserDetailsDTO)
                 .collect(Collectors.toList());
     }
+
     public UserDetailsDTO getUserDetailsDTO(UserDetails userDetails) {
         return new UserDetailsDTO(
                 userDetails.getId().toString(),
