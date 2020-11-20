@@ -1,0 +1,5 @@
+rootProject.name = 'spring-boot-ms-architecture'
+include 'eureka-server'
+include 'user-crud'
+include 'resource-service'
+include 'api-gateway'
